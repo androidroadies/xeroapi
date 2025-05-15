@@ -20,8 +20,7 @@ const xero = new XeroClient({
   ],
   state: 'returnPage=my-sweet-dashboard',
   httpTimeout: 3000,
-  clockTolerance: 10
-});
+  clockTolerance: 60});
 
 module.exports = {
   xero
