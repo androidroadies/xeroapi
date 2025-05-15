@@ -1,7 +1,10 @@
 const { xero } = require("../config/xero.config");
 
 const xeroAuth = async (req, res) => {
-  const consentUrl = await xero.buildConsentUrl();
+  const consentUrl = xero.buildConsentUrl({
+    redirectUri: process.env.XERO_REDIRECT_URI,
+  });
+
   res.redirect(consentUrl);
 }
 
