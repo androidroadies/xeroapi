@@ -7,7 +7,7 @@ const PORT = process.env.PORT;
 const xero = new XeroClient({
   clientId: process.env.XERO_CLIENT_ID,
   clientSecret: process.env.XERO_CLIENT_SECRET,
-  redirectUris: [`http://localhost:${PORT}/callback`],
+  redirectUris: [process.env.XERO_REDIRECT_URI],
   scopes: [
     'openid',
     'email',
