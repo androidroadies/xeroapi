@@ -26,7 +26,19 @@ const xeroCallback = async (req, res) => {
   }
 }
 
+const xeroTokens = async (req, res) => {
+  try {
+    const { tenantId, ...resttoken } = req.body;
+    const response = await saveTokenSet(resttoken, tenantId);
+    res.status(200).json(response)
+  } catch (error) {
+    console.error(error);
+    res.status(500).send('Server Error');
+  }
+};
+
 module.exports = {
   xeroAuth,
-  xeroCallback
+  xeroCallback,
+  xeroTokens
 };

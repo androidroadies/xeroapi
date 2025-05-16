@@ -4,11 +4,12 @@ const { createItems, deleteItems, getItems, putItems } = require('../controllers
 const { createInvoice, updateInvoice, getInvoice } = require('../controllers/xero.invoice.controller');
 const { createPayment, getPayment } = require('../controllers/xero.payment.controller');
 const { getAccounts, createAccounts } = require('../controllers/xero.account.controller');
-const { xeroAuth, xeroCallback } = require('../controllers/xero.auth.controller');
+const { xeroAuth, xeroCallback, xeroTokens } = require('../controllers/xero.auth.controller');
 const router = express.Router();
 
 router.get('/callback', xeroCallback);
 router.get('/auth', xeroAuth);
+router.post('/auth-tokens', xeroTokens);
 router.get('/accounts', getAccounts);
 router.put('/accounts', createAccounts);
 router.get('/contacts', getContacts);

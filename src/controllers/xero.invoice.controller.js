@@ -7,7 +7,6 @@ exports.createInvoice = async (req, res) => {
     const response = await xero.accountingApi.createInvoices(tenantId, {
       invoices: [req.body]
     })
-    console.log("xero.invoice.controller.js", 10, "-  ->", response);
     if (response.response.status === 200) {
       return res.status(201).json({
         message: "Invoice Created Successfully",
@@ -44,7 +43,6 @@ exports.getInvoice = async (req, res) => {
     const { xero, tenantId } = await getValidXeroClient();
     const { invoiceId } = req.params
     const response = await xero.accountingApi.getInvoices(tenantId)
-    console.log("xero.invoice.controller.js", 48, "-  ->", response);
     if (response.response.status === 200) {
       return res.status(201).json({
         message: "Invoice Listed",
